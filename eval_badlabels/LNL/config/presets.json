@@ -1,0 +1,98 @@
+{   
+    "alpha": 4,
+    "average_loss": 0,
+    "batch_size": 128,
+
+    "learning_rate": 0.02,
+
+    "num_workers": 5,
+    "preaugment": false,
+    "save_every": 25,
+    "seed": 17,
+    "warmup_aug_probability": 1,
+    "warmup_batch_size": 128,
+    "configs": {
+        "c10": {
+
+            "num_class": 10,
+            "warm_up": 10,
+            "seed": 17,
+
+            "warmup_transform": "transform_weak_10",
+            "configs": {
+                "lu0": {
+
+                    "lambda_u": 0,
+                    "average_loss": 0,
+                    "num_epochs": 300,
+                    "lr_switch_epoch": 150,
+                    "mt": 2,
+                    "md": 0.5
+                },
+                "lu25": {
+
+                    "lambda_u": 25,
+                    "average_loss": 0,
+                    "num_epochs": 300,
+                    "lr_switch_epoch": 150,
+                    "mt": 2,
+                    "md": 0.5
+                },
+                "lu50": {
+
+                    "lambda_u": 50,
+                    "average_loss": 0,
+                    "num_epochs": 300,
+                    "lr_switch_epoch": 150,
+                    "mt": 2,
+                    "md": 0.5
+                }
+            },
+            "labeled_transforms": [
+                "transform_strong_10",
+                "transform_strong_10",
+                "transform_weak_10",
+                "transform_weak_10"
+            ],
+            "unlabeled_transforms": [
+                "transform_strong_10",
+                "transform_strong_10",
+                "transform_weak_10",
+                "transform_weak_10"
+            ]
+        },
+        "c100": {
+
+            "num_epochs": 400,
+            "lr_switch_epoch": 300,
+            "num_class": 100,
+            "warm_up": 30,
+            "warmup_transform": "transform_weak_100",
+
+            "configs": {
+                "lu25": {
+                    "lambda_u": 25,
+                    "mt": 2,
+                    "md": 0.5
+                },
+                "lu150": {
+                    "lambda_u": 150,
+                    "mt": 2,
+                    "md": 0.5
+                }
+            },
+            "labeled_transforms": [
+                "transform_strong_100",
+                "transform_strong_100",
+                "transform_weak_100",
+                "transform_weak_100"
+            ],
+            "unlabeled_transforms": [
+                "transform_strong_100",
+                "transform_strong_100",
+                "transform_weak_100",
+                "transform_weak_100"
+            ]
+        }
+    }
+}

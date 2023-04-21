@@ -1,0 +1,132 @@
+{
+    "name": "mnist",
+    "n_gpu": 1,
+    "seed": 17,
+
+    "comet": {
+        "project_name": "",
+        "api": "",
+        "offline": false
+    },
+
+    "mixup": {
+        "alpha":  0
+    },
+
+    "arch": {
+        "type": "preact_resnet18",
+        "args": {
+            "num_classes":10,
+            "grayscale":true}
+    },
+
+    "reparam_arch": {
+        "type": "reparameterization",
+        "args": {
+            "n_samples": 60000,
+            "num_classes": 10,
+            "init": "gaussian", 
+            "mean": 0.0, 
+            "std": 1e-8
+        }
+    },
+
+    "num_classes": 10,
+
+    "data_augmentation":{
+        "type": "default",
+        "cutout": 14
+    },
+
+    "data_loader": {
+        "name": "mnist",
+        "type": "MNISTDataLoader",
+        "args":{
+            "data_dir": "",
+            "batch_size": 128,
+            "shuffle": true,
+            "num_batches": 0,
+            "validation_split": 0,
+            "num_workers": 5,
+            "pin_memory": true
+        }
+    },
+
+
+    "optimizer": {
+        "type": "SGD",
+        "args":{
+            "lr": 0.02,
+            "momentum": 0.9,
+            "weight_decay": 5e-4
+        }
+    },
+    
+    "optimizer_overparametrization": {
+        "type": "SGD",
+        "args":{
+            "lr": 1,
+            "momentum": 0,
+            "weight_decay": 0
+        }
+    },
+
+    "lr_u": 10,
+    "lr_v": 10,
+
+    
+    "train_loss": {
+        "type": "overparametrization_loss",
+        "args":{
+            "num_examp": 60000,
+            "num_classes": 10,
+            "ratio_consistency": 0.9,
+            "ratio_balance": 0.1
+        }
+    },
+
+
+    "val_loss": {
+        "type": "cross_entropy_val",
+        "args":{
+        }
+    },
+
+    "metrics": [
+        "my_metric", "my_metric2"
+    ],
+
+    "lr_scheduler": {
+        "type": "CosineAnnealingLR",
+        "args": {
+            "T_max": 300,
+            "eta_min": 0.0002
+        }
+    },
+
+
+    "trainer": {
+        "epochs": 300,
+        "warmup": 0,
+        "save_dir": "../export/sop",
+        "save_period": 1,
+        "verbosity": 2,     
+        "monitor": "max val_my_metric",
+        "early_stop": 2000,
+        "tensorboard": false,
+        "mlflow": true,
+        "_percent": "Percentage of noise",
+        "percent": 0.6,
+        "_begin": "When to begin updating labels",
+        "begin": 0,
+        "_asym": "symmetric noise if false",
+        "asym": false,
+        "_instance": "symmetric noise if false",
+        "instance": false,
+        "_real": "real noise type",
+        "real": null,
+        "att": false,
+        "noise_file": null,
+        "log": null
+    }
+}
