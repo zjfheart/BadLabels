@@ -322,6 +322,8 @@ Here we present learning curves of multiple LNL algorithms on CIFAR-10 and CIFAR
 	<p align="center">< Learning curves of multiple LNL algorithms on CIFAR-10. ></p>
 </p>
 
+&nbsp;
+
 <p align="center">
 	<img src="images/c100_learning_curves.png" width="650"\>
 	<p align="center">< Learning curves of multiple LNL algorithms on CIFAR-100. ></p>
