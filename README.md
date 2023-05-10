@@ -318,71 +318,13 @@ SOP [[paper](https://proceedings.mlr.press/v162/liu22w/liu22w.pdf), [code](https
 Here we present learning curves of multiple LNL algorithms on CIFAR-10 and CIFAR-100 datasets with different types and ratios of label noise.
 
 <p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_st.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_ct.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_tr.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_dm.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_ac.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_pl.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_nls.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_pgdf.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_pm.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar10_preact_resnet18_sop.png" width="650"\>
-</p>
-<p align="center" style="margin-top: 1px">
-    < Learning curves of multiple LNL algorithms on CIFAR-10. >
+	<img src="images/c10_learning_curves.png" width="650"\>
+	<p align="center">< Learning curves of multiple LNL algorithms on CIFAR-10. ></p>
 </p>
 
 <p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_st.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_ct.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_tr.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_dm.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_ac.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_pl.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_nls.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_pgdf.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_pm.png" width="650"\>
-</p>
-<p align="center">
-    <img src="images/lc_cifar100_preact_resnet18_sop.png" width="650"\>
-</p>
-<p align="center">
-    < Learning curves of multiple LNL algorithms on CIFAR-100. >
+	<img src="images/c100_learning_curves.png" width="650"\>
+	<p align="center">< Learning curves of multiple LNL algorithms on CIFAR-100. ></p>
 </p>
 
 
