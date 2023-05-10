@@ -420,5 +420,18 @@ Here we share our evaluation results of Robust DivideMix and two baseline method
 		<td>62.47</td><td>47.83</td><td>32.20</td><td>17.97</td><td>71.44</td><td>60.98</td><td>48.50</td><td>35.35</td><th>71.55±0.48</th><th>62.77±0.25</th><th>55.62±0.52</th><th>37.20±0.47</th>
 </table>
 
-#### ***Learning curves of multiple LNL algorithms on CIFAR-10 with different BadLabel noise ratios***
+#### ***Learning curves of multiple LNL algorithms on different BadLabel noise ratios***
+Below, we present the learning curves of multiple LNL algorithms on CIFAR-10 and CIFAR-100 with different BadLabel noise ratios. 
+
+<p align="center">
+	<img src="images/c10_bad_robdm_learning_curves.png" width="650"\>
+	<p align="center">FIGURE 3: Learning curves of multiple LNL algorithms on CIFAR-10 with different BadLabel noise ratios.</p>
+</p>
+
+&nbsp;
+
+<p align="center">
+	<img src="images/c100_bad_robdm_learning_curves.png" width="650"\>
+	<p align="center">FIGURE 4: Learning curves of multiple LNL algorithms on CIFAR-100 with different BadLabel noise ratios.</p>
+</p>
 
