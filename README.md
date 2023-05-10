@@ -42,7 +42,7 @@ ProMix [[paper](https://arxiv.org/pdf/2207.10276.pdf), [code](https://github.com
 SOP [[paper](https://proceedings.mlr.press/v162/liu22w/liu22w.pdf), [code](https://github.com/shengliu66/SOP)].
 
 <table style="font-size: 12px;">
-    <caption style="font-size: 16px;">Test accuracy (%) on CIFAR-10 with different noise types and noise ratios. For each method, we select the lowest test accuracy at the same noise ratio and mark it in bold.</caption>
+    <caption style="font-size: 16px;">Test accuracy (%) on CIFAR-10 with different noise types and noise ratios. The most robust evaluations for each LNL method are highlighted in bold.</caption>
 	<tr>
         <th colspan="2" rowspan="3">Method</th>
 	    <th colspan="14">Noise type / Noise ratio</th>
