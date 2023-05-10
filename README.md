@@ -29,7 +29,7 @@ If you want to quickly evaluate BadLabels on your own algorithm, we also provide
 #### *Evaluation results on CIFAR-10, CIFAR-100 and MNIST*
 Here we share our evaluation results on CIFAR-10, CIFAR-100, and MNIST. 
 
-We evaluated using Standard Training (no defense) and 10 state-of-the-art LNL methods as baselines. 
+We evaluated using Standard Training (no defense) [[paper](https://arxiv.org/pdf/1706.05394.pdf)] and 10 state-of-the-art LNL methods as baselines. 
 Specifically, these methods are as follows: Co-teaching [[paper](https://arxiv.org/pdf/1804.06872.pdf), [code](https://github.com/bhanML/Co-teaching)], 
 T-Revision [[paper](https://papers.nips.cc/paper_files/paper/2019/file/9308b0d6e5898366a4a986bc33f3d3e7-Paper.pdf), [code](https://github.com/xiaoboxia/T-Revision)], 
 RoG [[paper](https://arxiv.org/pdf/1901.11300.pdf), [code](https://github.com/pokaxpoka/RoGNoisyLabel)], 
@@ -57,7 +57,7 @@ SOP [[paper](https://proceedings.mlr.press/v162/liu22w/liu22w.pdf), [code](https
         <td>20%</td><td>40%</td><td>60%</td><td>80%</td><td>20%</td><td>40%</td><td>20%</td><td>40%</td><td>60%</td><td>80%</td><td>20%</td><td>40%</td><td>60%</td><td>80%</td>
     </tr>
     <tr align="center">
-        <th rowspan="2">Standard Training</th>
+        <th rowspan="2"><a href="https://arxiv.org/pdf/1706.05394.pdf">Standard Training</a></th>
         <td>Best</td>
 		<td>85.21</td><td>79.90</td><td>69.79</td><td>43.00</td><td>88.02</td><td>85.22</td><td>85.42</td><td>78.93</td><td>68.97</td><td>55.34</td><th>76.76±1.08</th><th>58.79±1.49</th><th>39.64±1.13</th><th>17.80±0.91</th>    </tr>
     <tr align="center">
@@ -348,7 +348,7 @@ Here we present learning curves of multiple LNL algorithms on CIFAR-10 and CIFAR
     <img src="images/lc_cifar10_preact_resnet18_sop.png" width="650"\>
 </p>
 <p align="center">
-    Learning curves of multiple LNL algorithms on CIFAR-10.
+    < Learning curves of multiple LNL algorithms on CIFAR-10. >
 </p>
 
 <p align="center">
@@ -382,7 +382,7 @@ Here we present learning curves of multiple LNL algorithms on CIFAR-10 and CIFAR
     <img src="images/lc_cifar100_preact_resnet18_sop.png" width="650"\>
 </p>
 <p align="center">
-    Learning curves of multiple LNL algorithms on CIFAR-100.
+    < Learning curves of multiple LNL algorithms on CIFAR-100. >
 </p>
 
 
