@@ -17,7 +17,8 @@ cd gen_badlabels
 ```
 
 ### Part 2: Evaluate BadLabel
-Run the following command to evaluate BadLabel on various LNL algorithms.
+Run the following command to automatically evaluate BadLabel on multiple LNL algorithms. 
+Additionally, in this shell script, we provide the execution commands for each LNL algorithm and the hyperparameter settings we used. Based on this, you can also evaluate a specific LNL algorithm separately.
 ```
 cd eval_badlabels
 ./eval_badlabels.sh
@@ -30,13 +31,14 @@ If you want to quickly evaluate BadLabel on your own algorithm, we also provide 
 #### ***Evaluation results of BadLabel on CIFAR-10, CIFAR-100 and MNIST***
 Here we share our evaluation results on CIFAR-10, CIFAR-100, and MNIST. 
 
-We evaluated using Standard Training (no defense) [[paper](https://arxiv.org/pdf/1706.05394.pdf)] and 10 state-of-the-art LNL methods as baselines. 
+We evaluated using Standard Training (no defense) [[paper](https://arxiv.org/pdf/1706.05394.pdf)] and 11 state-of-the-art LNL methods as baselines. 
 Specifically, these methods are as follows: Co-teaching [[paper](https://arxiv.org/pdf/1804.06872.pdf), [code](https://github.com/bhanML/Co-teaching)], 
 T-Revision [[paper](https://papers.nips.cc/paper_files/paper/2019/file/9308b0d6e5898366a4a986bc33f3d3e7-Paper.pdf), [code](https://github.com/xiaoboxia/T-Revision)], 
 RoG [[paper](https://arxiv.org/pdf/1901.11300.pdf), [code](https://github.com/pokaxpoka/RoGNoisyLabel)], 
 DivideMix [[paper](https://openreview.net/pdf?id=HJgExaVtwr), [code](https://github.com/LiJunnan1992/DivideMix)], 
 AdaCorr [[paper](https://arxiv.org/pdf/2011.10077.pdf), [code](https://github.com/pingqingsheng/LRT)], 
 Peer Loss [[paper](https://arxiv.org/pdf/1910.03231.pdf), [code](https://github.com/weijiaheng/Multi-class-Peer-Loss-functions)], 
+ELR [[paper](https://arxiv.org/pdf/2007.00151.pdf), [code](https://github.com/shengliu66/ELR)], 
 Negative LS [[paper](https://arxiv.org/pdf/2106.04149.pdf), [code](https://github.com/UCSC-REAL/negative-label-smoothing)], 
 PGDF [[paper](https://arxiv.org/pdf/2112.01197.pdf), [code](https://github.com/bupt-ai-cz/PGDF)], 
 ProMix [[paper](https://arxiv.org/pdf/2207.10276.pdf), [code](https://github.com/Justherozen/ProMix)], 
@@ -106,6 +108,13 @@ SOP [[paper](https://proceedings.mlr.press/v162/liu22w/liu22w.pdf), [code](https
     <tr align="center">
         <td><sub>Last</sub></td>
 		<td><sub>90.65</sub></td><td><sub>86.85</sub></td><td><sub>78.83</sub></td><td><sub>61.43</sub></td><td><sub>91.11</sub></td><td><sub>81.24</sub></td><td><sub>85.72</sub></td><td><sub>74.43</sub></td><td><sub>54.57</sub></td><td><sub>33.76</sub></td><th><sub>74.00±1.43</sub></th><th><sub>53.73±1.25</sub></th><th><sub>34.37±0.68</sub></th><th><sub>14.71±0.22</sub></th>    </tr>
+    <tr align="center">
+        <th rowspan="2"><sub><a href="https://arxiv.org/pdf/2007.00151.pdf">ELR</a></sub></th>
+        <td><sub>Best</sub></td>
+		<td><sub>92.85</sub></td><td><sub>91.30</sub></td><td><sub>87.99</sub></td><td><sub>54.67</sub></td><td><sub>92.42</sub></td><td><sub>89.40</sub></td><td><sub>87.62</sub></td><td><sub>82.08</sub></td><td><sub>73.23</sub></td><td><sub>57.26</sub></td><th><sub>85.73±0.15</sub></th><th><sub>62.58±1.33</sub></th><th><sub>35.24±1.12</sub></th><th><sub>11.71±0.70</sub></th>    </tr>
+    <tr align="center">
+        <td><sub>Last</sub></td>
+		<td><sub>89.37</sub></td><td><sub>87.78</sub></td><td><sub>85.69</sub></td><td><sub>46.71</sub></td><td><sub>92.31</sub></td><td><sub>89.11</sub></td><td><sub>85.31</sub></td><td><sub>78.05</sub></td><td><sub>68.12</sub></td><td><sub>48.99</sub></td><th><sub>81.88±0.25</sub></th><th><sub>56.45±0.31</sub></th><th><sub>30.45±0.30</sub></th><th><sub>8.67±0.79</sub></th>    </tr>
     <tr align="center">
         <th rowspan="2"><sub><a href="https://arxiv.org/pdf/2106.04149.pdf">Negative LS</a></sub></th>
         <td><sub>Best</sub></td>
@@ -199,6 +208,13 @@ SOP [[paper](https://proceedings.mlr.press/v162/liu22w/liu22w.pdf), [code](https
     <tr align="center">
         <td><sub>Last</sub></td>
 		<td><sub>60.64</sub></td><td><sub>43.64</sub></td><td><sub>26.23</sub></td><td><sub>7.65</sub></td><td><sub>69.38</sub></td><td><sub>62.70</sub></td><td><sub>53.90</sub></td><td><sub>42.14</sub></td><th><sub>55.00±1.41</sub></th><th><sub>35.85±1.48</sub></th><th><sub>18.65±0.22</sub></th><th><sub>5.74±0.76</sub></th>    </tr>
+    <tr align="center">
+        <th rowspan="2"><sub><a href="https://arxiv.org/pdf/2007.00151.pdf">ELR</a></sub></th>
+        <td><sub>Best</sub></td>
+		<td><sub>72.55</sub></td><td><sub>68.75</sub></td><td><sub>60.01</sub></td><td><sub>26.89</sub></td><td><sub>70.27</sub></td><td><sub>66.04</sub></td><td><sub>60.59</sub></td><td><sub>52.81</sub></td><th><sub>68.21±0.62</sub></th><th><sub>43.75±0.21</sub></th><th><sub>14.39±0.35</sub></th><th><sub>1.09±0.18</sub></th>    </tr>
+    <tr align="center">
+        <td><sub>Last</sub></td>
+		<td><sub>72.13</sub></td><td><sub>68.60</sub></td><td><sub>59.78</sub></td><td><sub>23.95</sub></td><td><sub>70.13</sub></td><td><sub>65.87</sub></td><td><sub>60.41</sub></td><td><sub>52.57</sub></td><th><sub>67.97±0.17</sub></th><th><sub>43.40±0.22</sub></th><th><sub>13.97±0.38</sub></th><th><sub>0.98±0.11</sub></th>    </tr>
     <tr align="center">
         <th rowspan="2"><sub><a href="https://arxiv.org/pdf/2106.04149.pdf">Negative LS</a></sub></th>
         <td><sub>Best</sub></td>
