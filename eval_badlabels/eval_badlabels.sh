@@ -16,13 +16,15 @@ cd LNL
 # hyper-parameters for dividemix
 lambda_u=0  # 0 for cifar10(r0.2, r0.4) and mnist(r0.2, r0.4), 25 for cifar10(r0.6, r0.8) and mnist(r0.6, r0.8) and cifar100(r0.2, r0.4), 150 for cifar100(r0.6, r0.8)
 p_threshold=0.5
-# hyper-parameters for pgdf
-preset=c10.lu0  # c10.lu0 for cifar10(r0.2, r0.4), c10.lu25 for cifar10(r0.6, r0.8), c100.lu25 for cifar100(r0.2, r0.4), c100.lu150 for cifar100(r0.6, r0.8)
-# hyper-parameters for sop
-config='./config/sop_config_c10.json'  # './config/sop_config_c10.json' for cifar10, './config/sop_config_c100.json' for cifar100, './config/sop_config_mnist.json' for mnist
 # hyper-parameters for adacorr
 ep_start=25  # 25 for cifar10(r0.2, r0.4, r0.6) and cifar100(r0.2, r0.4, r0.6), 20 for cifar10(r0.8), 30 for cifar100(r0.8)
 ep_update=30  # 30 for cifar10(r0.2, r0.4, r0.6) and cifar100(r0.2, r0.4, r0.6), 25 for cifar10(r0.8), 35 for cifar100(r0.8)
+# hyper-parameters for elr
+config_e='./config/sop_config_c10.json'  # './config/elr_config_c10.json' for cifar10, './config/elr_config_c10_asym.json' for cifar10 with asym noise, './config/elr_config_c100.json' for cifar100
+# hyper-parameters for pgdf
+preset=c10.lu0  # c10.lu0 for cifar10(r0.2, r0.4), c10.lu25 for cifar10(r0.6, r0.8), c100.lu25 for cifar100(r0.2, r0.4), c100.lu150 for cifar100(r0.6, r0.8)
+# hyper-parameters for sop
+config_s='./config/sop_config_c10.json'  # './config/sop_config_c10.json' for cifar10, './config/sop_config_c100.json' for cifar100, './config/sop_config_mnist.json' for mnist
 
 # standard training
 python standard_training.py --dataset $dataset --data-path $dpath --net $net --gpu 0 --r $r --log 'st_sym' --noise-file $sym &
@@ -73,6 +75,13 @@ python peer_loss.py --dataset $dataset --data-path $dpath --net $net --gpu 2 --r
 python peer_loss.py --dataset $dataset --data-path $dpath --net $net --gpu 3 --r $r --log 'pl_bad' --noise-file $bad &
 wait
 
+# elr (c)
+python elr.py -d 0 -c $config_e --data_dir $dpath --net $net --percent $r --log 'elr_sym' --noise_file $sym &
+python elr.py -d 1 -c $config_e --data_dir $dpath --net $net --percent $r --log 'elr_asym' --asym True --noise_file $asym &
+python elr.py -d 2 -c $config_e --data_dir $dpath --net $net --percent $r --log 'elr_idn' --idn True --noise_file $idn &
+python elr.py -d 3 -c $config_e --data_dir $dpath --net $net --percent $r --log 'elr_bad' --bad True --noise_file $bad &
+wait
+
 # negative label smoothing (smooth-rate default:-1.0)
 python negative_ls.py --dataset $dataset --data-path $dpath --net $net --gpu 0 --noise-rate $r --log 'nls_sym' --noise-file $sym &
 python negative_ls.py --dataset $dataset --data-path $dpath --net $net --gpu 1 --noise-rate $r --log 'nls_asym' --noise-type 'asym' --noise-file $asym &
@@ -102,8 +111,8 @@ python promix.py --dataset $dataset --data-path $dpath --net $net --gpu 3 --r $r
 wait
 
 # sop (c)
-python sop.py -d 0 -c $config --data_dir $dpath --net $net --percent $r --log 'sop_sym' --noise_file $sym &
-python sop.py -d 1 -c $config --data_dir $dpath --net $net --percent $r --log 'sop_asym' --asym True --noise_file $asym &
-python sop.py -d 2 -c $config --data_dir $dpath --net $net --percent $r --log 'sop_idn' --instance True --noise_file $idn &
-python sop.py -d 3 -c $config --data_dir $dpath --net $net --percent $r --log 'sop_bad' --att True --noise_file $bad &
+python sop.py -d 0 -c $config_s --data_dir $dpath --net $net --percent $r --log 'sop_sym' --noise_file $sym &
+python sop.py -d 1 -c $config_s --data_dir $dpath --net $net --percent $r --log 'sop_asym' --asym True --noise_file $asym &
+python sop.py -d 2 -c $config_s --data_dir $dpath --net $net --percent $r --log 'sop_idn' --instance True --noise_file $idn &
+python sop.py -d 3 -c $config_s --data_dir $dpath --net $net --percent $r --log 'sop_bad' --att True --noise_file $bad &
 wait
