@@ -1,6 +1,8 @@
 # BadLabel
 The code repository for a challenging label noise called ***BadLabel*** and a robust label-noise learning (LNL) algorithm called ***Robust DivideMix***.
 The paper link: https://arxiv.org/abs/2305.18377 
+This paper is accepted at IEEE TPAMI 2024 
+DOI: 10.1109/TPAMI.2024.3355425
 
 ## Prerequisites
 Python (3.8)  
